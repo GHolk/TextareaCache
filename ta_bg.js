@@ -172,11 +172,6 @@ ta_bg.setupCacheList = () => {
         browserAction.onClicked.addListener(ta_bg._popupLiteByBrowserAction);
     }
 
-    commands.onCommand.addListener((name, tab) => {
-        if (name != 'open-popup') return;
-        me._popupLiteByBrowserAction();
-    });
-
     if (!setting.pageAction) return;
     var target_function = setting.popupType == "window" ? ta_bg._popupListInWindow : ta_bg._popupLiteByPageAction;
     if (setting.pageActionLite) {

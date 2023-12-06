@@ -27,11 +27,10 @@
   },
 
   "commands": {
-    "open-popup": {
+    "_execute_browser_action": {
       "suggested_key": {
         "default": "Ctrl+Alt+T"
-      },
-      "description": "Open the popup panel from toolbar"
+      }
     }
   },
 

@@ -218,6 +218,10 @@ var panel = {
                     nop();
                     $copy_btn.click();
                 }
+                else if (k == 't' && e.altKey) {
+                    nop();
+                    window.close();
+                }
                 else if (k == 'c') {
                     var node = e.target;
                     if (node.isContentEditable || node.nodeName == 'textarea') return;
