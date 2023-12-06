@@ -26,6 +26,15 @@
     "default_icon": "icons/tacache-48.png"
   },
 
+  "commands": {
+    "open-popup": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+T"
+      },
+      "description": "Open the popup panel from toolbar"
+    }
+  },
+
   "content_scripts": [
     {
       "match_about_blank": true,
