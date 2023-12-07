@@ -53,11 +53,17 @@
     "option_intervalToSave": {
       "message": "interval to save text (ms)"
     },
+    "option_commandKey": {
+      "message": "keyboard shortcut to open cache list (left empty to disable it)"
+    },
     "option_shouldAutoClear": {
       "message": "auto clear old cache"
     },
     "option_intervalCantBeZero": {
       "message": "interval can't be zero."
+    },
+    "option_commandKeyInvalid": {
+      "message": "invalid keyboard shortcut format."
     },
     "option_saved": {
       "message": "Your change has been saved."
