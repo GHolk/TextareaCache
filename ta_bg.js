@@ -38,6 +38,15 @@ ta_bg.initPageAction = info => {
     }
 };
 
+ta_bg.setOptionHandler = {
+    commandKey: key => {
+        return commands.update({
+            name: '_execute_browser_action',
+            shortcut: key
+        });
+    }
+};
+
 ta_bg.listenMessageFromContentScript = () => {
     var me = ta_bg;
 
@@ -65,13 +74,18 @@ ta_bg.listenMessageFromContentScript = () => {
                 ).then( () => sendBack({ msg: 'done'}) );
                 break;
             case 'set_options':
-                ta_database.setOptions(request).then( () => {
-                    me.setupCacheList();
-                    me.initPageAction({
-                        forAll: true
+                var handler = me.setOptionHandler[request.key];
+                var handlerResult = null;
+                if (handler) handlerResult = handler(request.val);
+                Promise.resolve(handlerResult)
+                    .then( () => ta_database.setOptions(request))
+                    .then( () => {
+                        me.setupCacheList();
+                        me.initPageAction({
+                            forAll: true
+                        });
+                        sendBack({ msg: 'done'});
                     });
-                    sendBack({ msg: 'done'});
-                });
                 break;
             case 'get_options':
                 sendBack(ta_database.data.setting);

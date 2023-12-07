@@ -49,6 +49,9 @@ var option = {
                 case 'checkbox':
                     if (setting[key]) dom.checked = true;
                     break;
+                case 'text':
+                    dom.value = setting[key];
+                    break;
                 case 'select-one':
                     var value = setting[key];
                     if (!value) return;
@@ -124,6 +127,33 @@ var option = {
                 behavior: 'set_options',
                 key: 'showContextMenu',
                 val: showContextMenu
+            }).then( () => {
+                me.showUpdatedMessage('success');
+            });
+        });
+
+        document.querySelector('#commandKey').addEventListener('change', e => {
+            var input = e.currentTarget;
+            var keys = input.value;
+            var keyArray = keys.split('+');
+            var err = () => {
+                alert(i18n.getMessage('option_commandKeyInvalid'));
+                return runtime.sendMessage({behavior: 'get_options'})
+                    .then(setting => {
+                        var key = setting.commandKey;
+                        if (key == null) key = 'Ctrl+Alt+T';
+                        input.value = key;
+                    });
+            };
+            if (keyArray.length > 3) return err();
+            if (keys != '' && !keyArray.every(k => /^\w+$/.test(k))) {
+                return err();
+            }
+
+            runtime.sendMessage({
+                behavior: 'set_options',
+                key: 'commandKey',
+                val: keys
             }).then( () => {
                 me.showUpdatedMessage('success');
             });

@@ -10,6 +10,7 @@ var ta_database = {
             skipConfirmPaste: false,
             showContextMenu: true,
             intervalToSave: 2000,
+            commandKey: 'Ctrl+Alt+T',
             shouldAutoClear: false,
             autoClear_day: 0,
             autoClear_hour: 0,
