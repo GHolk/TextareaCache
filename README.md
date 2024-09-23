@@ -30,7 +30,9 @@ The timeline is:
 
 [bmc]: https://buymeacoffee.com/gholk/textarea-cache-mv3-upgrade
 
-[![bubble-tea]](https://www.buymeacoffee.com/gholk)
+Please find the details in the link or the button.
+
+[![bubble-tea]][bmc]
 
 [bubble-tea]: https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png "buy me a bubble tea"
 
